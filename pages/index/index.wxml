@@ -1,0 +1,155 @@
+<view class="page">
+  <view id="top-nav" class="{{first_click_top?'show-top':'hide-top'}} {{state_top?'open-top':'close-top'}}">
+   <view class="search">
+          <view class="search-bar-box" bindtap="showInput">
+            <icon class="icon-search" type="search" size="14"></icon>
+            <input type="text" class="search-bar-input" placeholder="请输入商品信息" value="" bindinput="inputTyping" bindconfirm="toSearch"/>
+            <icon type="clear" size="14" wx:if="{{inputVal.length > 0}}" bindtap="clearInput"></icon>
+          </view>
+        </view>
+        <view class="category">
+          <view class="category-title">★掌柜推荐
+            <text>(45)</text>
+          </view>
+          <view class="category-all" bindtap="unfold_top">全部分类 ></view>
+        </view>
+        <view id="category-tree-top" class="{{first_click_tree_top?'show':'hide'}} {{state_tree_top?'open':'close'}}">
+          <view class="category-tree-name">掌柜推荐(45)</view>
+          <view class="category-tree-name">精选食材(45)</view>
+          <view class="category-tree-name">年货(33)</view>
+          <view class="category-tree-name">水果生鲜(11)</view>
+        </view>
+  </view>
+  <scroll-view class="main" scroll-y="true" bindscroll="onPageScroll">
+    <view class="main">
+      <view class="head">
+          <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+          <block wx:else>
+            <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+            <text class="userinfo-nickname">{{userInfo.nickName}}，村郊记忆！</text>
+          </block>
+      </view>
+      <view class="content">
+        <view class="search">
+          <view class="search-bar-box" bindtap="showInput">
+            <icon class="icon-search" type="search" size="14"></icon>
+            <input type="text" class="search-bar-input" placeholder="请输入商品信息" value="" bindinput="inputTyping" bindconfirm="toSearch"/>
+            <icon type="clear" size="14" wx:if="{{inputVal.length > 0}}" bindtap="clearInput"></icon>
+          </view>
+          <!-- <view class="navigation">特产</view>
+          <view class="navigation">购买记录</view> -->
+        </view>
+        <view class="category">
+          <view class="category-title">★掌柜推荐
+            <text>(45)</text>
+          </view>
+          <view class="category-all" bindtap="unfold">全部分类 ></view>
+        </view>
+        <view id="category-tree" class="{{first_click?'show':'hide'}} {{state?'open':'close'}}">
+          <view class="category-tree-name">掌柜推荐(45)</view>
+          <view class="category-tree-name">精选食材(45)</view>
+          <view class="category-tree-name">年货(33)</view>
+          <view class="category-tree-name">水果生鲜(11)</view>
+        </view>
+        <view class="category-item">掌柜推荐</view>
+        <view class="goodList-item">
+          <image bindtap="toDetail" class="goods-img" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+          <view class="item-text">
+            <view class="item-name  text-ellipsis"><text>罗产红富士苹果</text></view>
+            <view class="item-sales  text-ellipsis"><text>668份已售</text></view>
+            <view class="item-specification text-ellipsis">
+              <text>￥49.90～55.66</text>
+              <view class='specification-select'>
+                <view class="specification-button">选规格</view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="goodList-item">
+          <image bindtap="toDetail" class="goods-img" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+          <view class="item-text">
+            <view class="item-name  text-ellipsis"><text>罗产红富士苹果</text></view>
+            <view class="item-sales  text-ellipsis"><text>668份已售</text></view>
+            <view class="item-specification text-ellipsis">
+              <text>￥49.90～55.66</text>
+              <view class='specification-select'>
+                <view class="specification-button">选规格</view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="goodList-item">
+          <image bindtap="bindViewTap" class="goods-img" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+          <view class="item-text">
+            <view class="item-name  text-ellipsis"><text>罗产红富士苹果</text></view>
+            <view class="item-sales  text-ellipsis"><text>668份已售</text></view>
+            <view class="item-specification text-ellipsis">
+              <text>￥49.90～55.66</text>
+              <view class='specification-select'>
+                <view class="specification-button">选规格</view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="category-item">苹果</view>
+        <view class="goodList-item">
+          <image bindtap="bindViewTap" class="goods-img" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+          <view class="item-text">
+            <view class="item-name  text-ellipsis"><text>罗产红富士苹果</text></view>
+            <view class="item-sales  text-ellipsis"><text>668份已售</text></view>
+            <view class="item-specification text-ellipsis">
+              <text>￥49.90～55.66</text>
+              <view class='specification-select'>
+                <view class="specification-button">选规格</view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="goodList-item">
+          <image bindtap="bindViewTap" class="goods-img" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+          <view class="item-text">
+            <view class="item-name  text-ellipsis"><text>罗产红富士苹果</text></view>
+            <view class="item-sales  text-ellipsis"><text>668份已售</text></view>
+            <view class="item-specification text-ellipsis">
+              <text>￥49.90～55.66</text>
+              <view class='specification-select'>
+                <view class="specification-button">选规格</view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="goodList-item">
+          <image bindtap="bindViewTap" class="goods-img" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+          <view class="item-text">
+            <view class="item-name  text-ellipsis"><text>罗产红富士苹果</text></view>
+            <view class="item-sales  text-ellipsis"><text>668份已售</text></view>
+            <view class="item-specification text-ellipsis">
+              <text>￥49.90～55.66</text>
+              <view class='specification-select'>
+                <view class="specification-button">选规格</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+  <view class='float-button'>
+    <view class="myorder">
+      <image src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAEwUlEQVR4Xu2aS2pbQRBFS2j+QGAreAVeRBxwdhJwlpFhlhFDdhJDnEV4BSayQaC5UPDEsRWiclHVra7u42n/bt17up6sp5nwN7QDs6Grp3gBgMEhAAAAGNyBwcunAwDA4A4MXj4dAAAGd2Dw8ukAADC4A4OXTwcAgLYd2GxWu7YVHlY3TcumL1nT4p6sBYCy+ANAWX+FDuA0mA7gNFBZTgco6y8dwOsvHcDr4OH1dICy/tIBvP7SAbwOHqEDbDarKxH5JLI7F5mdlizh2J+yywO6exCZ3YnI92laXkd7Gf4IWK/vL+fz+Y9oof/br38A/la+3W4/LhZnN5HehgOw2axuReR9pMhDe40EgIj8mqblRaS3JQB4EJGTSJEA8OzA4zQtQx+pJQCo+t39YB0g/L8KAHC2qvIfAl8LjAYeAADA6cDe8uw3wupG9nqrdwBrC6ttsBUAbX50vdb9NH0AoDnkHLcGpgFv3U+TDwCaQ85xa2AAcOTPFM68/1kOAHuWRBsSHVj0ftH1WvfT6uERoDnkHLcGxiOAR8DBb1KtQGn80gE0h5zj1sDoAE7Dsy8HgOwJOvUDgNPA7MsBIHuCTv0A4DQw+3IAyJ6gUz8AOA3MvhwAsifo1A8ATgOzLweA7Ak69QOA08DsywEge4JO/QDgNDD7cgDInqBTPwA4Dcy+HACyJ+jUDwB7BmqGOP0uvpwfhOxZHG1I8QSdB0TXa91Pk89PwjSHnOPWwLSOZ91Pkw8AmkPOcWtgAMBnAH4V/JIB7UY4L2jx5XQAPgSaHrMa8FagNMJN4rTNnsajC9D2e4umY86xBqbVa91Pq715ALQCehsHgN4SNdYDAEbDepsOAL0laqwHAIyG9TYdAHpL1FgPABgN6206APSWqLEeAGjsXUD0Fy8aDwAAALwMaullEB1A61nGG2s1VGuJRnnm6Va95gMK+6fpaf5dAAC8jjAaSABQrki04dqN1ICP1gMAAKAxaRuPJljbz6bOPjv6xmkKtHqj9TTfATTDehsHgN4SNdYDAEbDepsOAL0laqwHAIyG9TYdAHpL1FgPABgN6206APSWqLEeADC+HDH6a54e/cWLJgAAAIDfA7xkQLsR2o3yjtMBjA5qgVkN1fYzyjNPt+o1H2DseNF6mn8XAACvCQEA7xUzro82XDteAz5aDx1ASSTacACYlibotBuhGeodBwCjg1pgtQ01yj/69Nr+mW7jW9ypXcBbNGWaU9s/AGiMDgBoLJDacgCgtuONnQcAjQVSWw4A1Ha8sfMAoLFAassBgNqON3YeADQWSG05AFDb8cbOA4DGAqktBwBqO97YeQDQWCC15QBAbccbOw8AGguktpzuAahtaG/nRf+eovrr4N4CqV0PANR2vLHzAKCxQGrLSQDA75XI7LS2MWOct3uYpnfLyFpLfAb4KSIXkSLZ69mB22lafoj0owQAVyLyLVIkez078HmalteRfoQD8CRuvb6/nM/nX0XkXEROIgUPuNejiNxtt9svi8XZTXT9RQCIFsl+5RwAgHLeptgZAFLEVE4kAJTzNsXOAJAipnIiAaCctyl2BoAUMZUTCQDlvE2xMwCkiKmcSAAo522KnQEgRUzlRAJAOW9T7PwHEM+Vrk5Ax08AAAAASUVORK5CYII="></image>
+      <view>我的订单</view>
+    </view>
+    <view class="amount" bindtap="unfold_cart">
+      <view class="amount-text">¥79.45</view>
+      <view class='number'>
+        <view class="number-text">13</view>
+      </view>
+    </view>
+    <view class="tally">结算</view>
+  </view>
+  <cart id="cart" showDialog="{{showCart}}">
+    <!-- <scroll-view scroll-y="true" class="tab-content">
+      <view>dddd</view>
+    </scroll-view> -->
+  </cart>
+</view>

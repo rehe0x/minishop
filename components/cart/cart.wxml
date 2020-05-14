@@ -1,0 +1,23 @@
+<view class="dialog {{ showDialog ? 'dialog--show' : '' }}">
+  <view class="dialog__mask"/>
+  <view class="dialog__container">
+    <view class="dialog__header">
+     <icon class="dialog__close" bindtap="closeDialog"></icon>
+     <text>购物车</text>
+     <view class="clean_cart">
+      <icon class="clean_icon" bindtap="closeDialog"></icon>
+      <text>清空购物车</text>
+     </view>
+    </view>
+    <scroll-view scroll-y="true" class="cart-content">
+      <view class="diolog__content">
+        <view class="item">ssffff</view>
+        <view class="item">ssffff</view>
+        <view class="item">ssffff</view>
+        <view class="item">ssffff</view>
+        <view class="item">ssffff</view>
+        <slot></slot>
+      </view>
+    </scroll-view>
+  </view>
+</view>
